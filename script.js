@@ -18,26 +18,14 @@ function highlight(highlight) {
     }
 }
 
-function showPrices(priceId) {
-    // fake data!
-    const prices = [
-        { article: 'A[0]', price: 100 }
-    ];
-
-    // open modal to show prices
+function showModal(content) {
+    // Create a modal element
     const modal = document.createElement('div');
     modal.className = 'modal';
     modal.innerHTML = `
         <div class="modal-content">
-            <span class="close" onclick="noPrices()"><i class="fas fa-xmark"></i></span>
-            <h2>Prices for ${priceId}</h2>
-            <table>
-                <tr>
-                    <th>Article</th>
-                    <th>Price</th>
-                </tr>
-                ${prices.map(p => `<tr><td>${p.article}</td><td>${p.price}</td></tr>`).join('')}
-            </table>
+            <span class="close" onclick="document.body.removeChild(this.parentNode.parentNode)"><i class="fas fa-xmark"></i></span>
+            ${content}
         </div>`;
     document.body.appendChild(modal);
     modal.style.display = 'block';
@@ -45,8 +33,68 @@ function showPrices(priceId) {
     modal.classList.add('show');
 }
 
+function showPrices(priceId) {
+    // fake data!
+    const prices = [
+        { article: 'A[0]', price: 100 }
+    ];
+
+    showModal(`
+    <h2>Prices for ${priceId}</h2>
+    <table>
+        <tr>
+            <th>Article</th>
+            <th>Price</th>
+        </tr>
+        ${prices.map(p => `<tr><td>${p.article}</td><td>${p.price}</td></tr>`).join('')}
+    </table>`);
+}
+
 function noPrices() {
     const location = window.location.href;
     const newUrl = location.split('?')[0];
     window.location.href = newUrl;
+}
+
+function sortArticle(articleId) {
+    showModal(`
+    <h2>Sort Article</h2>
+    <p>This functionality is not implemented yet.</p>`);
+}
+
+// creation functionalities
+function newArticleType() {
+    showModal(`
+    <h2>Create New Article Type</h2>
+    <p>This functionality is not implemented yet.</p>`);
+}
+
+function newArticle() {
+    showModal(`
+    <h2>Create New Article</h2>
+    <p>This functionality is not implemented yet.</p>`);
+}
+
+function newStorageSlot() {
+    showModal(`
+    <h2>Create New Storage Slot</h2>
+    <p>This functionality is not implemented yet.</p>`);
+}
+
+function newPriceList() {
+    showModal(`
+    <h2>Create New Price List</h2>
+    <p>This functionality is not implemented yet.</p>`);
+}
+
+function newOrder() {
+    showModal(`
+    <h2>Create New Order</h2>
+    <p>This functionality is not implemented yet.</p>`);
+}
+
+function newBill() {
+    showModal(`
+    <h2>Create New Bill</h2>
+    <p>This functionality is not implemented yet.</p>`);
 }

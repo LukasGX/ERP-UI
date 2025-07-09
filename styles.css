@@ -69,6 +69,13 @@ h1 {
 .del-btn:hover {
     background: #b30000;
 }
+.disabled-btn {
+    background: #ccc;
+    cursor: not-allowed;
+}
+.disabled-btn:hover {
+    background: #ccc;
+}
 .technical {
     font-size: 0.6rem;
     font-family: monospace;

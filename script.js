@@ -24,7 +24,7 @@ function showModal(content) {
     modal.className = 'modal';
     modal.innerHTML = `
         <div class="modal-content">
-            <span class="close" onclick="document.body.removeChild(this.parentNode.parentNode)"><i class="fas fa-xmark"></i></span>
+            <span class="close" onclick="noModal()"><i class="fas fa-xmark"></i></span>
             ${content}
         </div>`;
     document.body.appendChild(modal);
@@ -50,7 +50,7 @@ function showPrices(priceId) {
     </table>`);
 }
 
-function noPrices() {
+function noModal() {
     const location = window.location.href;
     const newUrl = location.split('?')[0];
     window.location.href = newUrl;
@@ -97,4 +97,21 @@ function newBill() {
     showModal(`
     <h2>Create New Bill</h2>
     <p>This functionality is not implemented yet.</p>`);
+}
+
+// ErrorModal
+function errorModal(errorType) {
+    let errorMessage = 'An unknown error occurred.';
+    if (errorType === 'MISSING_ARTICLE') {
+        errorMessage = 'Create at least one article.';
+    }
+    else  if (errorType === 'MISSING_ARTICLE_TYPE') {
+        errorMessage = 'Create an article type.';
+    }
+    else if (errorType === 'MISSING_ORDER') {
+        errorMessage = 'Create an order.';
+    }
+    showModal(`
+    <h2>Error</h2>
+    <p>${errorMessage}</p>`);
 }

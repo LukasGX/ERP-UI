@@ -16,78 +16,27 @@
     <div class="grid">
         <div class="box">
             <h2>Article types</h2>
-            <button class="add-btn" onclick="newArticleType()"><i class="fas fa-plus"></i></button>
-            <div class="entry" id="AT[0]">
-                <div class="infos">
-                    <div class="info">ID:</div> <div class="info info-sp">0</div>
-                    <div class="info">Name:</div> <div class="info info-sp">Boot</div>
-                </div>
-                <span class="technical" onclick="highlight('AT[0]')">AT[0]</span><span class="technical" onclick="highlight('AT[0]')">AT[Boot]</span>
-                <button class="del-btn"><i class="fas fa-trash"></i></button>
-            </div>
+            <button class="add-btn" id="add-article-type" onclick="newArticleType()"><i class="fas fa-plus"></i></button>
         </div>
         <div class="box">
             <h2>Articles</h2>
-            <button class="add-btn" onclick="newArticle()"><i class="fas fa-plus"></i></button>
-            <div class="entry" id="A[0]">
-                <div class="infos">
-                    <div class="info">ID:</div> <div class="info info-sp">0</div>
-                    <div class="info">Article type:</div> <div class="info info-sp"><span class="technical" onclick="highlight('AT[0]')">AT[0]</span></div>
-                    <div class="info">Amount:</div> <div class="info info-sp">5</div>
-                    <div class="info">Storage slot:</div> <div class="info info-sp">none <i class="fas fa-pen edit" onclick="sortArticle('A[0]')"></i></div>
-                </div>
-                <span class="technical" onclick="highlight('A[0]')">A[0]</span>
-                <button class="del-btn"><i class="fas fa-trash"></i></button>
-            </div>
+            <button class="add-btn" id="add-article" onclick="newArticle()"><i class="fas fa-plus"></i></button>
         </div>
         <div class="box">
             <h2>Storage slots</h2>
-            <button class="add-btn" onclick="newStorageSlot()"><i class="fas fa-plus"></i></button>
-            <div class="entry" id="S[0]">
-                <div class="infos">
-                    <div class="info">ID:</div> <div class="info info-sp">0</div>
-                </div>
-                <span class="technical" onclick="highlight('S[0]')">S[0]</span>
-                <button class="del-btn"><i class="fas fa-trash"></i></button>
-            </div>
+            <button class="add-btn" id="add-storage-slot" onclick="newStorageSlot()"><i class="fas fa-plus"></i></button>
         </div>
         <div class="box">
             <h2>Price lists</h2>
-            <button class="add-btn" onclick="newPriceList()"><i class="fas fa-plus"></i></button>
-            <div class="entry" id="P[0]">
-                <div class="infos">
-                    <div class="info">ID:</div> <div class="info info-sp">0</div>
-                    <div class="info">Prices:</div> <div class="info info-sp"><a href="?prices=P[0]">Show Prices</a></div>
-                </div>
-                <span class="technical" onclick="highlight('P[0]')">P[0]</span>
-                <button class="del-btn"><i class="fas fa-trash"></i></button>
-            </div>
+            <button class="add-btn" id="add-price-list" onclick="newPriceList()"><i class="fas fa-plus"></i></button>
         </div>
         <div class="box">
             <h2>Orders</h2>
-            <button class="add-btn" onclick="newOrder()"><i class="fas fa-plus"></i></button>
-            <div class="entry" id="O[0]">
-                <div class="infos">
-                    <div class="info">ID:</div> <div class="info info-sp">0</div>
-                    <div class="info">Articles:</div> <div class="info info-sp"><span class="technical" onclick="highlight('A[0]')">A[0]</span></div>
-                </div>
-                <span class="technical" onclick="highlight('O[0]')">O[0]</span>
-                <button class="del-btn"><i class="fas fa-trash"></i></button>
-            </div>
+            <button class="add-btn" id="add-order" onclick="newOrder()"><i class="fas fa-plus"></i></button>
         </div>
         <div class="box">
             <h2>Bills</h2>
-            <button class="add-btn" onclick="newBill()"><i class="fas fa-plus"></i></button>
-            <div class="entry" id="B[0]">
-                <div class="infos">
-                    <div class="info">ID:</div> <div class="info info-sp">0</div>
-                    <div class="info">Order:</div> <div class="info info-sp"><span class="technical" onclick="highlight('O[0]')">O[0]</span></div>
-                    <div class="info">Price list:</div> <div class="info info-sp"><span class="technical" onclick="highlight('P[0]')">P[0]</span></div>
-                    <div class="info">Total price:</div> <div class="info info-sp">500</div>
-                </div>
-                <span class="technical" onclick="highlight('B[0]')">B[0]</span>
-                <button class="del-btn"><i class="fas fa-trash"></i></button>
-            </div>
+            <button class="add-btn" id="add-bill" onclick="newBill()"><i class="fas fa-plus"></i></button>
         </div>
     </div>
     <script src="script.js"></script>

@@ -111,7 +111,75 @@ function errorModal(errorType) {
     else if (errorType === 'MISSING_ORDER') {
         errorMessage = 'Create an order.';
     }
+    else if (errorType === 'MISSING_PRICE_LIST') {
+        errorMessage = 'Create a price list.';
+    }
+    else if (errorType === 'MISSING_STORAGE_SLOT') {
+        errorMessage = 'Create a storage slot.';
+    }
     showModal(`
     <h2>Error</h2>
     <p>${errorMessage}</p>`);
+}
+
+// control
+const articleTypes = [];
+const articles = [];
+const storageSlots = [];
+const priceLists = [];
+const orders = [];
+const bills = [];
+
+// check for articles
+if (articleTypes.length === 0) {
+    disableButton('add-article', 'MISSING_ARTICLE_TYPE');
+}
+
+// check for price lists
+if (articleTypes.length === 0) {
+    disableButton('add-price-list', 'MISSING_ARTICLE_TYPE');
+}
+
+// check for orders
+if (priceLists.length === 0) {
+    disableButton('add-order', 'MISSING_PRICE_LIST');
+}
+
+// check for bills
+if (orders.length === 0) {
+    disableButton('add-bill', 'MISSING_ORDER');
+}
+
+function disableButton(buttonId, errorType) {
+    const button = document.getElementById(buttonId);
+    if (button) {
+        button.classList.add('disabled-btn');
+        button.onclick = () => errorModal(errorType);
+    } else {
+        console.warn(`Button with ID ${buttonId} not found.`);
+    }
+}
+
+// ws
+const ws = new WebSocket('ws://localhost:8080');
+console.log('Attempting to connect to WebSocket');
+
+ws.onopen = () => {
+    console.log('WebSocket connected');
+};
+
+ws.onmessage = (event) => {
+    console.log(event.data);
+};
+
+ws.onerror = (error) => {
+    console.error('WebSocket error:', error);
+};
+
+function sendCommand(command) {
+    if (ws.readyState === WebSocket.OPEN) {
+        ws.send(command);
+    } else {
+        alert('WebSocket not connected');
+    }
 }

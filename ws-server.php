@@ -22,7 +22,7 @@ class ERPServer implements MessageComponentInterface {
             2 => ["pipe", "w"]   // stderr
         ];
 
-        $workingDirectory = __DIR__ . '/erp-v1.2.0 sp'; // Adjust to your ERP-Fix.exe directory
+        $workingDirectory = __DIR__ . '/erp-v1.2.0-sp'; // Adjust to your ERP-Fix.exe directory
         $this->process = proc_open(
             'ERP-Fix.exe',
             $descriptorSpec,

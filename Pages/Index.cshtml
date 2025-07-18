@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "ERP-System";
+}
+
+<h1>ERP</h1>
+<p class="copy">ERP System - &copy; 2025 by LukasGX - <a href="https://github.com/LukasGX/ERP">ERP on GitHub</a></p>
+<div class="grid">
+    <div class="box" id="article-types">
+        <h2>Article types</h2>
+        <button class="add-btn" id="add-article-type" onclick="newArticleType()"><i class="fas fa-plus"></i></button>
+    </div>
+    <div class="box" id="articles">
+        <h2>Articles</h2>
+        <button class="add-btn @Model.ArticlesAddBtnClass" id="add-article" onclick="newArticle()"><i class="fas fa-plus"></i></button>
+    </div>
+    <div class="box" id="storage-slots">
+        <h2>Storage slots</h2>
+        <button class="add-btn" id="add-storage-slot" onclick="newStorageSlot()"><i class="fas fa-plus"></i></button>
+    </div>
+    <div class="box" id="price-lists">
+        <h2>Price lists</h2>
+        <button class="add-btn @Model.PriceListsAddBtnClass" id="add-price-list" onclick="newPriceList()"><i class="fas fa-plus"></i></button>
+    </div>
+    <div class="box" id="orders">
+        <h2>Orders</h2>
+        <button class="add-btn @Model.OrdersAddBtnClass" id="add-order" onclick="newOrder()"><i class="fas fa-plus"></i></button>
+    </div>
+    <div class="box" id="bills">
+        <h2>Bills</h2>
+        <button class="add-btn @Model.BillsAddBtnClass" id="add-bill" onclick="newBill()"><i class="fas fa-plus"></i></button>
+    </div>
+</div>
+<div class="modal @Model.ModalState"><div class="modal-content">ABC</div></div>
